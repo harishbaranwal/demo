@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteTabs Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shadcn-ui@latest/dist/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+  <style>
+    /* ==================== Root Variables for Theme Colors ==================== */
+
+    :root {
+      --bg-light: #fafaf7;
+      --bg-accent: #f2f2e9;
+      --primary: #b488f2;
+      --secondary: #fd589e;
+      --dark: #050a02;
+      --highlight: #ffd029;
+    }
+
+
+
+    /* ====================    Base Styles for HTML and Body ==================== */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-accent);
+      color: var(--dark);
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.5s ease-in-out;
+    }
+
+    section {
+      padding: 4rem 3.5rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+    }
+
+
+
+    /* ==================== Navigation Bar Styles ==================== */
+
+    nav {
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-light);
+      border-radius: 25px;
+      padding: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 1000;
+      width: auto;
+      min-width: max-content;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    nav a.active {
+      background: black;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    }
+
+    nav.glass {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+
+
+
+
+
+    /* ==================== Hero Section Styles ==================== */
+
+    .hero-section {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 2.5rem;
+      min-height: 100vh;
+      width: 100%;
+      background: var(--bg-accent);
+      overflow: hidden;
+
+    }
+
+    .logo {
+      position: relative;
+      height: 100px;
+      width: auto;
+      max-width: 200px;
+      margin: 1rem 0;
+      cursor: pointer;
+      mix-blend-mode: multiply;
+      z-index: 100;
+      object-fit: contain;
+    }
+
+    .intro-heading {
+      padding: 0 3rem;
+      text-align: left;
+      font-size: 8rem;
+      line-height: 120%;
+      font-weight: 700;
+      margin-top: 100px;
+      color: var(--dark);
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      transform: translateY(0);
+      will-change: transform;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+
+
+
+    /* Below 1400px */
+    @media (max-width: 1100px) {
+      .intro-heading {
+        font-size: 7rem;
+      }
+
+      .hero-section {
+        min-height: 80vh;
+      }
+    }
+
+    /* Below 992px */
+    @media (max-width: 992px) {
+      .intro-heading {
+        font-size: 6rem;
+        padding: 0 2rem;
+        margin-top: 90px;
+      }
+
+      .hero-section {
+        min-height: 80vh;
+      }
+    }
+
+    /* Below 768px */
+    @media (max-width: 768px) {
+      .intro-heading {
+        font-size: 5rem;
+        line-height: 1.3;
+        padding: 0;
+        margin-top: 80px;
+      }
+
+      .logo {
+        height: 90px;
+        max-width: 100px;
+
+      }
+
+      .hero-section {
+        min-height: 65vh;
+        padding: 2rem 2rem;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .intro-heading {
+        font-size: 4rem;
+        margin-top: 70px;
+      }
+
+      .hero-section {
+        min-height: 60vh;
+      }
+    }
+
+    /* Below 480px */
+    @media (max-width: 480px) {
+      .intro-heading {
+        font-size: 3rem;
+        line-height: 1.4;
+        padding: 0;
+        margin-top: 60px;
+      }
+
+      .hero-section {
+        min-height: 50vh;
+        padding: 2rem 1.5rem;
+      }
+
+      .logo {
+        height: 70px;
+        max-width: 80px;
+      }
+    }
+
+
+
+
+
+    /* ==================== Video Section Styles ==================== */
+
+    .video-section {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      z-index: 1;
+      height: 100vh;
+      will-change: transform;
+      padding: 4rem 3.5rem;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      transform-origin: center center;
+    }
+
+
+
+    /* Below 992px */
+    @media (max-width: 992px) {
+      .video-section {
+        height: 80vh;
+      }
+
+      .hero-video {
+        border-radius: 12px;
+      }
+    }
+
+    /* Below 768px */
+    @media (max-width: 768px) {
+      .video-section {
+        height: 60vh;
+      }
+
+      .hero-video {
+        border-radius: 10px;
+      }
+    }
+
+    /* Below 480px */
+    @media (max-width: 480px) {
+      .video-section {
+        height: 50vh;
+        padding: 4rem 1.8rem;
+      }
+
+      .hero-video {
+        border-radius: 8px;
+      }
+    }
+
+
+
+
+
+
+    /* ==================== Headline Section Styles ==================== */
+
+    .headline-section {
+      padding: 5rem 3rem;
+      text-align: center;
+      background: var(--primary);
+    }
+
+    .headline {
+      font-size: 6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--bg-light);
+      margin: auto;
+    }
+
+
+
+    /* Below 1200px */
+    @media (max-width: 1200px) {
+      .headline {
+        font-size: 5rem;
+      }
+    }
+
+    /* Below 992px */
+    @media (max-width: 992px) {
+      .headline {
+        font-size: 4rem;
+      }
+
+      .headline-section {
+        padding: 4rem 2rem;
+      }
+    }
+
+    /* Below 768px */
+    @media (max-width: 768px) {
+      .headline {
+        font-size: 3rem;
+        line-height: 1.3;
+      }
+
+      .headline-section {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    /* Below 480px */
+    @media (max-width: 480px) {
+      .headline {
+        font-size: 2.2rem;
+        line-height: 1.4;
+      }
+
+      .headline-section {
+        padding: 4.5rem 0.8rem;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ==================== Logo Slider / Partners Section Styles ==================== */
+
+
+    .logo-slider {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: black;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .logo-list {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 80%;
+      justify-content: space-between;
+    }
+
+    .logo-list li {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      width: 100%;
+      height: auto;
+      color: white;
+      border-radius: 5%;
+    }
+
+
+
+
+    @media (max-width: 768px) {
+      .logo-list {
+        width: 85%;
+      }
+
+      .logo-list li.logo-container:nth-child(n+5) {
+        display: none;
+      }
+    }
+
+    /* Show 3 logos on screens <= 550px */
+    @media (max-width: 550px) {
+
+      .logo-list {
+        display: flex;
+        gap: 1rem;
+        width: 90%;
+      }
+
+      /* .logo-list li.logo-container:nth-child(n+4) {
+    display: none;
+  } */
+
+    }
+
+    /* Show 2 logos on screens <= 420px */
+    @media (max-width: 420px) {
+
+      .logo-list {
+        display: flex;
+        gap: 1.2rem;
+        width: 90%;
+      }
+
+      .logo-list li.logo-container:nth-child(n+4) {
+        display: none;
+      }
+
+    }
+
+
+
+
+    /* ==================== Mission Quote Section Styles ==================== */
+
+    .quote-section {
+      text-align: left;
+      padding: 10rem 3rem 3rem 3rem;
+      font-size: 2.5rem;
+      color: #ccc;
+    }
+
+    .quote-section>h2 {
+      margin: 0;
+    }
+
+    /* Below 1200px */
+    @media (max-width: 1200px) {
+      .quote-section {
+        font-size: 2.2rem;
+        padding: 8rem 3rem 3rem 3rem;
+      }
+    }
+
+    /* Below 992px */
+    @media (max-width: 992px) {
+      .quote-section {
+        font-size: 2rem;
+        padding: 6rem 2.5rem 3rem 2.5rem;
+      }
+    }
+
+    /* Below 768px */
+    @media (max-width: 768px) {
+      .quote-section {
+        font-size: 1.8rem;
+        padding: 5rem 2rem 2rem 2rem;
+        line-height: 1.4;
+      }
+    }
+
+    /* Below 480px */
+    @media (max-width: 480px) {
+      .quote-section {
+        font-size: 1.6rem;
+        line-height: 1.3;
+        padding: 4rem 1.5rem 2rem 1.5rem;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ==================== Technology Stack Grid Styles ==================== */
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 4rem;
+    }
+
+    .tech-card {
+      aspect-ratio: 1 / 1;
+      background: #1a1a1a;
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .tech-card:hover {
+      background: #2b2b2b;
+    }
+
+    .tech-text {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 2rem;
+      color: #ccc;
+      transition: transform 0.2s ease;
+      pointer-events: none;
+    }
+
+
+
+    /* =============== MEDIA QUERIES =============== */
+
+    /* For screens below 990px */
+    @media (max-width: 990px) {
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        padding: 3rem;
+      }
+
+      .tech-text {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* For screens below 768px */
+    @media (max-width: 768px) {
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .tech-text {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* For screens below 550px */
+    @media (max-width: 550px) {
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+        padding: 2rem 1rem;
+      }
+
+      .tech-card {
+        aspect-ratio: 1 /0.5;
+        border-radius: 10px;
+      }
+
+      .tech-text {
+        font-size: 1.35rem;
+      }
+    }
+
+    /* For screens below 420px */
+    @media (max-width: 420px) {
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.75rem;
+        padding: 1.5rem 0.8rem;
+      }
+
+      .tech-card {
+        aspect-ratio: 1 /0.5;
+        border-radius: 8px;
+      }
+
+      .tech-text {
+        font-size: 1.2rem;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ==================== Capabilities Section Styles ==================== */
+
+    .capabilities-section {
+      padding: 8rem 3.5rem 0rem 3.5rem;
+      background: var(--bg-accent);
+      text-align: center;
+    }
+
+    .capabilities {
+      font-weight: bold;
+      margin: 2rem 0;
+      font-size: 3rem;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+
+
+    /* Below 1200px */
+    @media (max-width: 1200px) {
+      .capabilities {
+        font-size: 2.6rem;
+      }
+    }
+
+    /* Below 992px */
+    @media (max-width: 992px) {
+      .capabilities {
+        font-size: 2.2rem;
+      }
+
+      .capabilities-section {
+        padding: 6rem 2.5rem 0;
+      }
+    }
+
+    /* Below 768px */
+    @media (max-width: 768px) {
+      .capabilities {
+        font-size: 1.7rem;
+        line-height: 1.4;
+      }
+
+      .capabilities-section {
+        padding: 5rem 2rem 0;
+      }
+    }
+
+
+
+    @media(max-width: 550px) {
+
+      .capabilities {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        font-weight: 500;
+      }
+
+    }
+
+
+
+    /* Below 480px */
+    @media (max-width: 480px) {
+      .capabilities {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .capabilities-section {
+        padding: 4rem 1.5rem 0;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ==================== Capabilities Grid Styles ==================== */
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 3rem 3rem;
+      padding: 4rem 3.5rem;
+    }
+
+    .capability-box {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .capability-box h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .capability-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .capability-box ul li {
+      padding: 0.3rem 0;
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+
+
+
+
+    /* =============== MEDIA QUERIES =============== */
+    /* Below 990px */
+    @media (max-width: 990px) {
+      .capability-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin: 2rem;
+        gap: 1.5rem;
+        padding: 4rem 3rem;
+      }
+
+      .capability-box ul li {
+        font-size: 1rem;
+      }
+    }
+
+    /* Below 768px */
+    @media (max-width: 768px) {
+      .capability-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        margin: 1.5rem;
+        gap: 1.2rem;
+        padding: 4rem 2.5rem;
+
+      }
+
+      .capability-box ul li {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .capability-grid {
+        padding: 4rem 2rem;
+      }
+
+    }
+
+
+
+    /* Below 550px */
+    @media (max-width: 550px) {
+      .capability-grid {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+        gap: 1rem;
+        padding: 4rem 1.5rem;
+      }
+
+      .capability-box {
+        padding: 1.2rem;
+      }
+
+      .capability-box ul li {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Below 420px (leave exactly as you had it) */
+    @media (max-width: 420px) {
+      .capability-grid {
+        grid-template-columns: 1fr;
+        margin: 0.75rem;
+        gap: 1.5rem;
+        padding: 3rem 1rem;
+      }
+
+      .capability-box {
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .capability-box ul li {
+        font-size: 1rem;
+      }
+    }
+
+
+
+
+    /* ==================== Work Section Styles ==================== */
+
+    .work-header {
+      color: #fff;
+      padding: 1rem 3.5rem;
+    }
+
+    .work-header>h1 {
+      font-size: 6rem;
+      line-height: 1.2;
+    }
+
+
+
+
+
+
+    /* Below 992px */
+    @media (max-width: 992px) {
+      .work-header>h1 {
+        font-size: 4rem;
+      }
+
+      .work-header {
+        padding: 1rem 2.5rem;
+      }
+    }
+
+    /* Below 768px */
+    @media (max-width: 768px) {
+      .work-header>h1 {
+        font-size: 3.5rem;
+        line-height: 1.3;
+      }
+
+      .work-header {
+        padding: 1rem 2rem;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .work-header>h1 {
+        font-size: 2.7rem;
+        line-height: 1.3;
+      }
+
+      .work-header {
+        padding: 1rem 2rem;
+      }
+    }
+
+
+
+    /* Below 480px */
+    @media (max-width: 480px) {
+      .work-header>h1 {
+        font-size: 2.6rem;
+        line-height: 1.4;
+      }
+
+      .work-header {
+        padding: 1rem 1.7rem;
+      }
+    }
+
+
+
+
+
+    /* ==================== Work Categories Styles ==================== */
+
+    .work-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      padding: 1rem 3.5rem;
+      list-style: none;
+      margin: 0;
+    }
+
+    .work-categories>li {
+      cursor: pointer;
+      background: var(--bg-light);
+      padding: 0.5rem 1rem;
+      color: #000;
+      font-weight: 600;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .work-categories li.active {
+      background: black;
+      color: var(--bg-light);
+    }
+
+@media(max-width: 768px) {
+      .work-categories {
+        padding: 1rem 2rem;
+      }
+
+      .work-categories>li {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+              border-radius: 12px;
+      }
+    }
+
+
+    @media(max-width: 550px) {
+      .work-categories {
+        padding: 1rem 1.5rem;
+      }
+
+      .work-categories>li {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+      }
+    }
+
+
+    @media(max-width: 420px) {
+      .work-categories {
+        padding: 1rem 1rem;
+      }
+
+      .work-categories>li {
+        font-size: 0.8rem;
+           border-radius: 8px;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ==================== Works/ Projects Section Styles ==================== */
+
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 3.5rem;
+    }
+
+    .project-row {
+      display: flex;
+      gap: 2rem;
+      height: 115vh;
+    }
+
+    .project-block {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.5rem;
+    }
+
+    .landscape {
+      width: 100%;
+    }
+
+    .portrait {
+      flex: 1;
+    }
+
+    .landscape>.media-wrapper {
+      width: 70%;
+      height: 66%;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .landscape>.media-wrapper>img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      object-position: top;
+      border-radius: 1rem;
+      display: block;
+    }
+
+    .portrait>.media-wrapper {
+      width: 42%;
+      height: 65%;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portrait>.media-wrapper>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 1rem;
+      display: block;
+    }
+
+
+
+
+
+
+
+
+    .project-name {
+      position: absolute;
+      left: 2rem;
+      bottom: 2rem;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1.4rem;
+      font-weight: 900;
+      width: auto;
+      max-width: 100%;
+      z-index: 500;
+      text-decoration: none;
+    }
+
+
+
+    /* Load More Button */
+
+    #load-more-wrapper {
+      text-align: center;
+      margin: 2rem auto;
+      display: block;
+    }
+
+    #load-more-btn {
+      font-size: 1.2rem;
+      padding: 0.75rem 2rem;
+      background-color: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #load-more-btn:hover {
+      background-color: #0b1207ec;
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+
+    @media(max-width:1110px){
+          .portrait>.media-wrapper {
+      width: 60%;
+      height:75%;
+    }
+   .landscape>.media-wrapper {
+      width: 82%;
+    }
+
+      .project-row {
+      height: 80vh;
+    }
+        .project-name {
+    left: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+
+    }
+
+
+/* Below 992px */
+@media (max-width: 992px) {
+  .projects {
+    padding: 2rem ;
+  }
+
+    .project-row {
+    flex-direction: column;
+    height: unset;
+  }
+
+    .project-block {
+    border-radius: 1rem;
+    height:55vh;
+    min-height: 55vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .project-name {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 900;
+  }
+  .landscape > .media-wrapper,
+  .portrait > .media-wrapper {
+    width: 80%;
+    height: 50%;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Make both image types identical sizing and containment */
+ .landscape > .media-wrapper > img,
+.portrait > .media-wrapper > img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;          /* Enable cropping */
+  object-position: top;       /* Focus on top part of image */
+  border-radius: 0.5rem;
+  display: block;
+}
+
+
+
+}
+
+/* Below 768px */
+@media (max-width: 768px) {
+
+}
+/* Below 420px */
+@media (max-width: 420px) {
+  .projects {
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .project-row {
+    flex-direction: column;
+    height: unset;
+  }
+
+  .project-block {
+    border-radius: 1rem;
+    height:50vh;
+    min-height: 50vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-name {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+
+  /* Make both landscape and portrait media wrappers identical */
+  .landscape > .media-wrapper,
+  .portrait > .media-wrapper {
+    width: 85%;
+    height: 50%;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Make both image types identical sizing and containment */
+ .landscape > .media-wrapper > img,
+.portrait > .media-wrapper > img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;          /* Enable cropping */
+  object-position: top;       /* Focus on top part of image */
+  border-radius: 0.5rem;
+  display: block;
+}
+
+
+}
+
+
+
+
+
+
+
+
+    /* ==================== Contact Section Styles ==================== */
+
+    .contact {
+      margin: 2rem;
+      padding: 4rem 3.5rem;
+    }
+
+
+
+
+
+    .animated-heading {
+      font-size: 5rem;
+      line-height: 1.2;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .heading-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .animated-heading>.heading-row svg {
+      height: 1.2em;
+      width: 1.2em;
+      margin-top: 0.1em;
+    }
+
+    #word-rotate {
+      color: #007BFF;
+      display: inline-block;
+      min-width: 120px;
+      font-style: italic;
+    }
+
+
+
+
+
+    .contact-wrapper {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-details {
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      margin-left: 0.5rem;
+      margin-top: 10rem;
+    }
+
+    .contact-details>p {
+      margin: 0.2rem 0;
+    }
+
+    .contact-details .submit-brief>svg {
+      vertical-align: middle;
+      color: var(--dark);
+      margin-left: 0.5rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: currentColor;
+
+    }
+
+    .submit-brief {
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+
+
+
+
+    /* Below 1200px: Slightly reduce heading size */
+
+
+    /* Below 768px: Stack layout vertically and center text */
+    @media (max-width: 768px) {
+
+      .contact {
+        padding: 4rem 2rem;
+      }
+
+      .animated-heading {
+        font-size: 3.5rem;
+
+      }
+
+      .contact-wrapper {
+        flex-direction: column;
+
+        gap: 2rem;
+      }
+
+      .contact-details {
+        margin-top: 2rem;
+
+      }
+    }
+
+    /* Below 480px: Further reduce heading and spacing */
+    @media (max-width: 550px) {
+      .contact {
+        padding: 2rem 0rem;
+      }
+
+      .animated-heading {
+        font-size: 2.7rem;
+      }
+
+      #word-rotate {
+        min-width: auto;
+      }
+
+      .contact-details {
+        font-size: 1.1rem;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ==================== Footer Styles ==================== */
+
+
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5rem 1rem 3.5rem;
+      background-color: #111;
+      color: #eee;
+      font-size: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .footer-left a {
+      color: #aaa;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .footer-left a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .footer-left a:hover {
+      color: #fff;
+    }
+
+    .footer-left a:hover::after {
+      width: 100%;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .social-link {
+      color: #aaa;
+      font-size: 1.4rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: #fff;
+      transform: scale(1.2) rotate(3deg);
+    }
+
+
+
+    /* Below 768px: Stack items vertically with spacing */
+    @media (max-width: 768px) {
+      .site-footer {
+        align-items: center;
+        padding: 0.7rem 2.5rem;
+        text-align: center;
+      }
+
+      .footer-left {
+        justify-content: center;
+      }
+
+      .footer-right {
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+
+    /* Below 480px: Smaller icons and tighter spacing */
+    @media (max-width: 480px) {
+      .site-footer {
+        align-items: center;
+        padding: 0.7rem 1.5rem;
+        text-align: center;
+      }
+
+      .social-link {
+        font-size: 1.2rem;
+      }
+
+
+
+      .footer-right {
+        gap: 1.5rem;
+      }
+    }
+
+
+
+
+
+
+
+    /* ==================== Locomotive Scroll Support ======================= */
+
+    html.has-scroll-smooth {
+      overflow: hidden;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    html.has-scroll-dragging {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .has-scroll-smooth body {
+      overflow: hidden;
+    }
+
+    .has-scroll-smooth [data-scroll-container] {
+      min-height: 100vh;
+    }
+
+    [data-scroll-section] {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .c-scrollbar {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 11px;
+      height: 100%;
+      transform-origin: center right;
+      transition: transform 0.3s, opacity 0.3s;
+      opacity: 0;
+    }
+
+    .c-scrollbar:hover {
+      transform: scaleX(1.45);
+    }
+
+    .c-scrollbar:hover,
+    .has-scroll-scrolling .c-scrollbar,
+    .has-scroll-dragging .c-scrollbar {
+      opacity: 1;
+    }
+
+    .c-scrollbar_thumb {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: black;
+      opacity: 0.5;
+      width: 7px;
+      border-radius: 10px;
+      margin: 2px;
+      cursor: grab;
+    }
+
+    .has-scroll-dragging .c-scrollbar_thumb {
+      cursor: grabbing;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- ============ START: Main Scroll Container for Locomotive Js ============ -->
+
+  <main data-scroll-container>
+
+
+    <!-- ======================= Navigation Bar (Sticky) ======================== -->
+
+    <!-- <nav data-scroll data-scroll-sticky>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav> -->
+
+
+    <!-- ============ Hero Section ============ -->
+
+    <div id="home" data-scroll-section>
+      <div class="hero-section">
+        <!-- Company Logo -->
+        <img src="./images/logo.jpg" alt="ByteTabs Logo" class="logo" data-scroll data-scroll-speed="1" />
+
+        <!-- Main Heading -->
+        <div class="intro-heading" data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
+          Extraordinary <br>Digital Experiences
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ============ Intro Video Section ============ -->
+
+    <div class="video-section" data-scroll-section>
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="./images/intro_video.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+
+    <!-- ======================= About / Headline Section ======================== -->
+
+    <section class="headline-section" id="about" data-scroll-section>
+      <h1 class="headline" data-scroll data-scroll-speed="1">
+        We design, build and ship world-class digital products for forward-thinking brands.
+      </h1>
+    </section>
+
+
+    <!-- ============ Logo Slider / Partners Section ============ -->
+
+    <section class="logo-slider" data-scroll-section>
+      <ul class="logo-list">
+        <li class="logo-container"><img src="./images/logo-3-modified.png" alt="logo 1" /></li>
+        <li class="logo-container"><img src="./images/loogo-2-modified.png" alt="logo 2" /></li>
+        <li class="logo-container"><img src="./images/ceo-modified.jpg" alt="logo 3" /></li>
+        <li class="logo-container"><img src="./images/danlite-modified.jpg" alt="logo 4" /></li>
+        <li class="logo-container"><img src="./images/ca-modified.jpg" alt="logo 5" /></li>
+      </ul>
+    </section>
+
+
+
+    <!-- ============ Mission Quote Section ============ -->
+
+    <section class="quote-section" data-scroll-section>
+      <h2 data-scroll data-scroll-speed="1">Crafting digital solutions with the best technologies around the globe.</h2>
+    </section>
+
+
+    <!-- ============ Technology Stack Grid ============ -->
+
+    <section class="tech-grid" id="tech-grid" data-scroll-section>
+
+
+      <!-- Frontend Technologies -->
+      <div class="tech-card"><span class="tech-text">HTML5</span></div>
+      <div class="tech-card"><span class="tech-text">CSS3</span></div>
+      <div class="tech-card"><span class="tech-text">JavaScript</span></div>
+      <div class="tech-card"><span class="tech-text">React</span></div>
+      <div class="tech-card"><span class="tech-text">Vue.js</span></div>
+      <div class="tech-card"><span class="tech-text">Next.js</span></div>
+      <!-- Backend & Full-Stack Technologies -->
+      <div class="tech-card"><span class="tech-text">Node.js</span></div>
+      <div class="tech-card"><span class="tech-text">Express.js</span></div>
+      <div class="tech-card"><span class="tech-text">Java</span></div>
+      <div class="tech-card"><span class="tech-text">.NET</span></div>
+      <div class="tech-card"><span class="tech-text">PHP</span></div>
+      <div class="tech-card"><span class="tech-text">Laravel</span></div>
+      <!-- Databases & Backend Tools -->
+      <div class="tech-card"><span class="tech-text">MongoDB</span></div>
+      <div class="tech-card"><span class="tech-text">MySQL</span></div>
+      <div class="tech-card"><span class="tech-text">Firebase</span></div>
+      <!-- Styling Frameworks -->
+      <div class="tech-card"><span class="tech-text">Tailwind CSS</span></div>
+      <div class="tech-card"><span class="tech-text">Bootstrap</span></div> 
+      <!-- Development Tools -->
+      <div class="tech-card"><span class="tech-text">TypeScript</span></div>
+      <div class="tech-card"><span class="tech-text">Git</span></div>
+      <div class="tech-card"><span class="tech-text">GitHub</span></div>
+      <!-- CMS & Design Tools -->
+      <div class="tech-card"><span class="tech-text">WordPress</span></div>
+      <div class="tech-card"><span class="tech-text">Framer</span></div> 
+      <!-- Operations -->
+      <div class="tech-card"><span class="tech-text">DevOps</span></div>
+    </section> 
+
+
+
+    <!-- ============ Services / Capabilities Section ============ -->
+ 
+    <section class="capabilities-section" id="services" data-scroll-section>
+      <p class="capabilities">
+        Our capabilities are centred around our ability to deliver world-class websites and apps. We're 100% in-house
+        and work end-to-end, ensuring each project is delivered to the highest standard.
+      </p>
+    </section>
+ 
+
+
+    <!-- ============ Capabilities Grid ============ -->
+
+     <div class="capability-grid" data-scroll-section>
+      <div class="capability-box">
+        <h2>Strategy & UX</h2>
+        <ul>
+          <li>Digital Strategy</li>
+          <li>User Research</li>
+          <li>User Journey Mapping</li>
+          <li>Information Architecture</li>
+          <li>Wireframing</li>
+        </ul>
+      </div>
+
+      <div class="capability-box">
+        <h2>Design</h2>
+        <ul>
+          <li>Interaction Design</li>
+          <li>User Interface Design</li>
+          <li>Design Systems</li>
+          <li>Prototyping & Animation</li>
+          <li>Accessibility</li>
+        </ul>
+      </div>
+
+      <div class="capability-box">
+        <h2>Development</h2>
+        <ul>
+          <li>Custom Websites & Web Apps</li>
+          <li>eCommerce Development</li>
+          <li>Mobile App Development (iOS & Android)</li>
+          <li>API & Platform Integrations</li>
+        </ul>
+      </div>
+
+      <div class="capability-box">
+        <h2>Technology</h2>
+        <ul>
+          <li>Frontend Frameworks (React, Vue, Next.js)</li>
+          <li>Backend Frameworks (Node.js, Express, PHP, Laravel)</li>
+          <li>Headless CMS & WordPress</li>
+          <li>Shopify & WooCommerce</li>
+          <li>WordPress Framer Solutions</li>
+        </ul>
+      </div>
+
+      <div class="capability-box">
+        <h2>Optimisation</h2>
+        <ul>
+          <li>Website / App Review</li>
+          <li>Performance Optimisation</li>
+          <li>Conversion Rate Optimisation</li>
+          <li>A/B Testing</li>
+          <li>Ongoing Enhancements</li>
+        </ul>
+      </div>
+
+      <div class="capability-box">
+        <h2>Support</h2>
+        <ul>
+          <li>Project Management</li>
+          <li>Website Hosting & Maintenance</li>
+          <li>Security Monitoring</li>
+          <li>3rd Party Services Integration</li>
+          <li>DevOps & Deployment Automation</li>
+        </ul>
+      </div>
+
+      <div class="capability-box">
+        <h2>Digital Marketing</h2>
+        <ul>
+          <li>Social Media Management</li>
+          <li>Search Engine Optimization (SEO)</li>
+          <li>Google & Meta Ads Campaigns</li>
+          <li>Email Campaigns</li>
+          <li>Content Marketing</li>
+        </ul>
+      </div>
+
+      <div class="capability-box">
+        <h2>Social Media Handling</h2>
+        <ul>
+          <li>Instagram & Facebook Post Scheduling</li>
+          <li>Blog Content Management</li>
+          <li>Google Ads Management</li>
+          <li>Meta Ads Optimization</li>
+          <li>Cross-Platform Content Strategy</li>
+        </ul>
+      </div>
+    </div> 
+
+
+
+
+    <!-- =======================divHeader ======================== -->
+
+    <header class="work-header" id="work" data-scroll-section>
+      <h1 data-scroll data-scroll-speed="1">World-class digital <br>products, idea to<br> execution.</h1>
+    </header>
+
+
+
+    <!-- ============ Work Filter Categories ============ -->
+
+    <ul class="work-categories" data-scroll-section>
+      <li data-filter="all" class="active" style="padding-left: 1.5rem; padding-right: 1.5rem;">All</li>
+      <li data-filter="beauty-fashion">Beauty / Fashion / Lifestyle</li>
+      <li data-filter="education">Education</li>
+      <li data-filter="healthcare">Healthcare / Wellness</li>
+      <li data-filter="it-digital">IT / Digital Services</li>
+      <li data-filter="ecommerce">E-commerce / Products</li>
+      <li data-filter="interior-realestate">Interior / Real Estate</li>
+      <li data-filter="tourism">Tourism</li>
+      <li data-filter="utility-finance">Utility / Finance / Energy</li>
+    </ul>
+
+
+
+    <!-- ============ Works / Projects Section ============ -->
+
+    <section class="projects" data-scroll-section>
+
+      <div class="project-row" data-category="beauty-fashion">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_1.jpg');">
+          <a href="https://cutiebeauty.in/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/cutiebeauty.png" alt="Cutie Beauty" />
+          </a>
+          <a href="https://cutiebeauty.in/" target="_blank" class="project-name">Cutie Beauty & Salon</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="beauty-fashion">
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_1.png');">
+          <a href="https://mkfashionlace.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/mkfashion.png" alt="MK Fashion Lace" />
+          </a>
+          <a href="https://mkfashionlace.com/" target="_blank" class="project-name" style="color: black;">MK Fashion
+            Lace</a>
+        </div>
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_2.webp');">
+          <a href="https://kinkydose.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/kinkydose.png" alt="Kinky Dose" />
+          </a>
+          <a href="https://kinkydose.com/" target="_blank" class="project-name">Kinky Dose Apparel</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="beauty-fashion">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_2.jpg');">
+          <a href="https://genzevibe.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/genzevibe.png" alt="Genze Vibe" />
+          </a>
+          <a href="https://genzevibe.com/" target="_blank" class="project-name">Genze Vibe Lifestyle</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="beauty-fashion">
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_3.webp');">
+          <a href="http://www.samtroh.com" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/samtroh.png" alt="Samtroh Indian Ethnic Wear" />
+          </a>
+          <a href="http://www.samtroh.com" target="_blank" class="project-name">Samtroh Indian Ethnic Wear</a>
+        </div>
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_4.webp');">
+          <a href="https://www.capresebags.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/capresebags.png" alt="Caprese Bags" />
+          </a>
+          <a href="https://www.capresebags.com/" target="_blank" class="project-name">Caprese Bags (Accessories)</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="education">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_3.webp');">
+          <a href="https://childvalleyschool.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/childvalleyschool.png" alt="Child Valley School" />
+          </a>
+          <a href="https://childvalleyschool.com/" target="_blank" class="project-name">Child Valley School</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="education">
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_5.webp');">
+          <a href="https://dpsbpkihsdharan.edu.np/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/dpsbpkihsdharan.png" alt="DPS Dharan" />
+          </a>
+          <a href="https://dpsbpkihsdharan.edu.np/" target="_blank" class="project-name">DPS BPKIHS Dharan (Nepal)</a>
+        </div>
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_6.webp');">
+          <a href="https://lilliputschool.edu.np/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/lilliputschool.png" alt="Lilliput Preschool" />
+          </a>
+          <a href="https://lilliputschool.edu.np/" target="_blank" class="project-name" style="color: black;">Lilliput
+            Preschool (Nepal)</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="education">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_1.jpg');">
+          <a href="https://epicenterabroadservices.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/epicenterabroadservices.png" alt="Epicenter Abroad Services" />
+          </a>
+          <a href="https://epicenterabroadservices.com/" target="_blank" class="project-name">Epicenter Abroad
+            Consultancy</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="healthcare">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_2.jpg');">
+          <a href="https://radheayurveda.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/radheayurveda.png" alt="Radhe Ayurveda Clinic" />
+          </a>
+          <a href="https://radheayurveda.com/" target="_blank" class="project-name">Radhe Ayurveda Clinic</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="healthcare">
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_1.png');">
+          <a href="https://galaxydentalcare.in/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/galaxydentalcare.png" alt="Galaxy Dental Care" />
+          </a>
+          <a href="https://galaxydentalcare.in/" target="_blank" class="project-name" style="color: black;">Galaxy
+            Dental Care</a>
+        </div>
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_2.webp');">
+          <a href="https://gobindadental.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/gobindadental.png" alt="Gobinda Dental" />
+          </a>
+          <a href="https://gobindadental.com/" target="_blank" class="project-name">Gobinda Dental Clinic</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="healthcare">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_2.jpg');">
+          <a href="https://ivorydentalny.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/ivorydentalny.png" alt="Ivory Dental Clinic (USA)" />
+          </a>
+          <a href="https://ivorydentalny.com/" target="_blank" class="project-name">Ivory Dental Clinic (USA)</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="it-digital">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_3.webp');">
+          <a href="https://proasistsolutions.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/proasistsolutions.png" alt="Proasis Solutions" />
+          </a>
+          <a href="https://proasistsolutions.com/" target="_blank" class="project-name">Proasis Solutions</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="it-digital">
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_5.webp');">
+          <a href="https://marketingscalers.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/marketingscalers.png" alt="Marketing Scalers" />
+          </a>
+          <a href="https://marketingscalers.com/" target="_blank" class="project-name">Marketing Scalers</a>
+        </div>
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_6.webp');">
+          <a href="http://www.bytetabs.in" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/bytetabs.png" alt="ByteTabs" />
+          </a>
+          <a href="http://www.bytetabs.in" target="_blank" class="project-name" style="color: black;">ByteTabs
+          </a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="it-digital">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_1.jpg');">
+          <a href="https://bluegumcreations.com.au/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/bluegumcreations.png" alt="Bluegum Creations" />
+          </a>
+          <a href="https://bluegumcreations.com.au/" target="_blank" class="project-name">Bluegum Creations</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="ecommerce">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_2.jpg');">
+          <a href="https://cosmolite.in/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/cosmolite.png" alt="Cosmolite Home Decor" />
+          </a>
+          <a href="https://cosmolite.in/" target="_blank" class="project-name">Cosmolite Home Decor</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="ecommerce">
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_1.png');">
+          <a href="https://suverafresh.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/suverafresh.png" alt="Suvera Fresh" />
+          </a>
+          <a href="https://suverafresh.com/" target="_blank" class="project-name" style="color: black;">Suvera Fresh
+            Organics</a>
+        </div>
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_2.webp');">
+          <a href="https://vasudhaivaexports.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/vasudhaivaexports.png" alt="Vasudhaiva Exports" />
+          </a>
+          <a href="https://vasudhaivaexports.com/" target="_blank" class="project-name">Vasudhaiva Exports</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="interior-realestate">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_3.webp');">
+          <a href="https://ddesigninterior.in/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/ddesigninterior.png" alt="DDesign Interior" />
+          </a>
+          <a href="https://ddesigninterior.in/" target="_blank" class="project-name">DDesign Interior</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="tourism">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_1.jpg');">
+          <a href="https://gulmargvibes.com" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/gulmargvibes.png" alt="Gulmarg Vibes" />
+          </a>
+          <a href="https://gulmargvibes.com" target="_blank" class="project-name">Gulmarg Vibes Tourism</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="utility-finance">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_2.jpg');">
+          <a href="https://grishivpower.com/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/grishivpower.png" alt="Grishiv Power Solar" />
+          </a>
+          <a href="https://grishivpower.com/" target="_blank" class="project-name">Grishiv Power Solar</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="utility-finance">
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_1.png');">
+          <a href="https://himalayafinance.in/" target="_blank" class="media-wrapper" data-scroll data-scroll-speed="2">
+            <img src="./images/himalayafinance.png" alt="Himalaya Finance" />
+          </a>
+          <a href="https://himalayafinance.in/" target="_blank" class="project-name" style="color: black;">Himalaya
+            Finance</a>
+        </div>
+        <div class="project-block portrait" style="background-image: url('./images/portrait_support_bg_2.webp');">
+          <a href="https://lpgdelearshipchyans.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/lpgdelearshipchyans.png" alt="LPG Dealership Chyans" />
+          </a>
+          <a href="https://lpgdelearshipchyans.com/" target="_blank" class="project-name">LPG Dealership Chyans</a>
+        </div>
+      </div>
+
+      <div class="project-row" data-category="utility-finance">
+        <div class="project-block landscape" style="background-image: url('./images/landscape_support_bg_3.webp');">
+          <a href="https://getgasdelearshipaply.com/" target="_blank" class="media-wrapper" data-scroll
+            data-scroll-speed="2">
+            <img src="./images/getgasdelearshipaply.png" alt="Get Gas Dealership" />
+          </a>
+          <a href="https://getgasdelearshipaply.com/" target="_blank" class="project-name">Get Gas Dealership</a>
+        </div>
+      </div>
+
+
+
+    <!-- Load More Button -->
+
+
+    
+      <div id="load-more-wrapper" style="text-align: center; margin: 2rem 0; font-size: 42px;">
+        <button id="load-more-btn" class="btn">Load More</button>
+      </div>
+
+    </section>
+
+
+ 
+
+
+
+
+    <!-- ============ Contact Section ============ -->
+
+    <div id="contact" class="contact" data-scroll-section>
+
+
+      <!-- Animated Heading -->
+
+      <h2 class="animated-heading">
+        <span class="heading-row">
+          Let's make
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+              d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+          </svg>
+        </span>
+        <br>
+        something <span id="word-rotate">epic</span>
+      </h2>
+
+
+
+      <!-- Contact Info Wrapper -->
+      <div class="contact-wrapper">
+
+
+        <!-- Contact Details -->
+        <div class="contact-details">
+          <p class="global"><i class="fa-solid fa-globe"></i> We work globally</p>
+          <p class="submit-brief">
+            Submit a brief
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+            </svg>
+          </p>
+          <p class="email">supports@bytetabs.com</p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- ============ Footer ============ -->
+
+
+
+    <footer class="site-footer" data-scroll-section>
+
+      <!-- Left Side: Copyright -->
+      <div class="footer-left">
+        <p>© 2025 ByteTabs.</p>
+      </div>
+
+
+      <!-- Right Side: Social Links -->
+      <div class="footer-right">
+        <a href="#" class="social-link" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/byte-tabs" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/byte._.tabs/" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+
+    </footer>
+
+
+
+
+
+  </main>
+
+
+
+
+
+
+
+  <!-- ================== Script Imports ================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
+
+  <script>
+
+
+    // ================== PROJECT FILTER & LOAD MORE ==================
+
+    function updateProjectsDisplay(filter) {
+      const rows = document.querySelectorAll('.project-row');
+      let count = 0;
+
+      // Show projects based on selected filter and visible count
+      rows.forEach(row => {
+        const category = row.dataset.category.toLowerCase();
+        const match = filter === 'all' || category === filter;
+
+        if (match && count < visible) {
+          row.style.display = 'flex'; // Show matching item
+          count++;
+        } else {
+          row.style.display = 'none'; // Hide non-matching or extra items
+        }
+      });
+
+      // Show or hide the "Load More" button
+      const totalMatching = Array.from(rows).filter(row => {
+        const category = row.dataset.category.toLowerCase();
+        return filter === 'all' || category === filter;
+      }).length;
+
+      const wrapper = document.getElementById("load-more-wrapper");
+      wrapper.style.display = totalMatching > visible ? "block" : "none";
+
+      // Refresh scroll animations if used with Locomotive + GSAP
+      if (window.scroll && typeof window.scroll.update === 'function') scroll.update();
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const rows = document.querySelectorAll('.project-row');
+      const btn = document.getElementById("load-more-btn");
+      const categoryLinks = document.querySelectorAll('.work-categories li');
+      let currentFilter = 'all';
+      visible = 18; // Initial number of items to show
+
+      updateProjectsDisplay(currentFilter);
+
+      // "Load More" button functionality
+      btn.addEventListener("click", () => {
+        visible += 2; // Load 2 more items
+        updateProjectsDisplay(currentFilter);
+      });
+
+      // Filter by category click event
+      categoryLinks.forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          categoryLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          currentFilter = link.dataset.filter;
+          visible = 6; // Reset visible items
+          updateProjectsDisplay(currentFilter);
+        });
+      });
+    });
+
+
+
+
+
+    // ================== SCROLL + ANIMATIONS INITIALIZATION ==================
+
+    window.addEventListener("load", () => {
+      // Initialize Locomotive Scroll for smooth scrolling
+      const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        lerp: 0.03,
+        smartphone: { smooth: true },
+        tablet: { smooth: true },
+        getDirection: true,
+        getSpeed: true
+      });
+
+      // Initialize GSAP ScrollTrigger with Locomotive Scroll
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+        scrollTop(value) {
+          return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0, left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight
+          };
+        }
+      });
+
+      scroll.on("scroll", ScrollTrigger.update);
+      ScrollTrigger.defaults({ scroller: "[data-scroll-container]" });
+
+
+
+
+      // ================== HERO SECTION ANIMATIONS ==================
+
+      gsap.from(".logo", {
+        y: -50,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top center"
+        }
+      });
+
+      gsap.from(".intro-heading", {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top center"
+        }
+      });
+
+
+
+
+
+      // ================== VIDEO SCALE ANIMATION ==================
+
+      gsap.to(".hero-video", {
+        scale: 1.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".video-section",
+          start: "top 75%",
+          end: "top 25%",
+          scrub: 0.5,
+          scroller: "[data-scroll-container]"
+        }
+      });
+
+      // Reset video scale on scroll back
+      ScrollTrigger.create({
+        trigger: ".video-section",
+        start: "bottom 50",
+        end: "bottom 75%",
+        onEnterBack: () => {
+          gsap.to(".hero-video", { scale: 1.1, duration: 0.3 });
+        },
+        onLeaveBack: () => {
+          gsap.to(".hero-video", { scale: 1, duration: 0.2 });
+        },
+        scroller: "[data-scroll-container]"
+      });
+
+
+
+      // ================== TECH CARD FADE-IN ==================
+
+      gsap.from(".tech-card", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#tech-grid",
+          start: "top center",
+          end: "bottom center"
+        }
+      });
+
+
+
+
+      // ================== ROTATING WORD ANIMATION ==================
+
+      const words = ['epic', 'fun', 'delightful', 'beautiful', 'original', 'extraordinary', 'engaging', 'click', 'wonder'];
+      let i = 0;
+      const wordEl = document.getElementById('word-rotate');
+
+      setInterval(() => {
+        const next = words[i % words.length];
+        gsap.to(wordEl, {
+          y: -20, opacity: 0, duration: 0.4,
+          onComplete: () => {
+            wordEl.textContent = next;
+            gsap.fromTo(wordEl, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 });
+          }
+        });
+        i++;
+      }, 2000);
+
+
+
+
+      // ================== NAVIGATION SCROLL TO SECTION ==================
+
+      const navLinks = document.querySelectorAll("nav a");
+      navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+          navLinks.forEach(l => l.classList.remove("active"));
+          this.classList.add("active");
+
+          const targetId = this.getAttribute("href");
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) scroll.scrollTo(targetEl);
+        });
+      });
+
+
+
+      // ================== TECH CARD CURSOR FOLLOW EFFECT ==================
+
+      document.querySelectorAll('.tech-card').forEach(card => {
+        const text = card.querySelector('.tech-text');
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const offsetX = e.clientX - rect.left - rect.width / 2;
+          const offsetY = e.clientY - rect.top - rect.height / 2;
+
+          gsap.to(text, {
+            x: offsetX * 0.15,
+            y: offsetY * 0.15,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(text, { x: 0, y: 0, duration: 0.4, ease: "power3.out" });
+        });
+      });
+
+      // Final sync for scroll
+      scroll.update();
+      ScrollTrigger.refresh();
+
+      // ================== GLASS EFFECT ON NAV ==================
+      const nav = document.querySelector("nav");
+      window.addEventListener("scroll", () => {
+        nav.classList.toggle("glass", window.scrollY > 20);
+      });
+
+    });
+
+
+
+
+
+
+
+    // ================== IMAGE FADE SEQUENCE (LOGO GRID) ==================
+
+    const imgSets = [
+      ['./images/logo-3-modified.png', './images/suvera-fresh-modified.jpg'],
+      ['./images/loogo-2-modified.png', './images/logo-3-modified.png'],
+      ['./images/ceo-modified.jpg', './images/ca-modified.jpg'],
+      ['./images/danlite-modified.jpg', './images/ceo-modified.jpg'],
+      ['./images/ca-modified.jpg', './images/danlite-modified.jpg'],
+    ];
+
+    const containers = document.querySelectorAll('.logo-container img');
+    let indices = Array(containers.length).fill(0); // Keep track of each image index
+
+    // Animate logos one after the other
+    function animateSequentially(index = 0) {
+      if (index >= containers.length) return;
+
+      const imgElement = containers[index];
+      const currentIndex = indices[index];
+      const nextIndex = (currentIndex + 1) % imgSets[index].length;
+      indices[index] = nextIndex;
+
+      gsap.to(imgElement, {
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power1.in',
+        onComplete: () => {
+          imgElement.src = imgSets[index][nextIndex];
+          gsap.to(imgElement, {
+            opacity: 1,
+            duration: 0.5,
+            ease: 'power2.out',
+          });
+        }
+      });
+
+      setTimeout(() => animateSequentially(index + 1), 200); // Delay between image switches
+    }
+
+    // Initialize image opacities
+    containers.forEach(img => img.style.opacity = 1);
+
+    // Start animation cycle every 4 seconds
+    setInterval(() => {
+      animateSequentially(0);
+    }, 4000);
+
+  </script>
+
+
+
+</body>
+
+</html>
